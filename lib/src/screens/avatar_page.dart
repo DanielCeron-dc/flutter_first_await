@@ -21,8 +21,7 @@ class AvatarPage extends StatelessWidget {
         ),
         body: Center(
             child: FadeInImage(
-            image: NetworkImage(
-              "https://e00-elmundo.uecdn.es/elmundo/imagenes/2007/08/06/1186391983_0.jpg"),
+            image: NetworkImage("https://e00-elmundo.uecdn.es/elmundo/imagenes/2007/08/06/1186391983_0.jpg"),
           placeholder: AssetImage('assets/jar-loading.gif'),
           fadeOutDuration: Duration(milliseconds: 300),
           )
