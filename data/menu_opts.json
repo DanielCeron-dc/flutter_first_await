@@ -20,6 +20,11 @@
             "ruta" : "animated_container",
             "icon" : "attractions",
             "texto": "Container Animado"
+        },
+        {
+            "ruta" : "input",
+            "icon" : "input",
+            "texto": "Inputs uwu"
         }
     ]
 }

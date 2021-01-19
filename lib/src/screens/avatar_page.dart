@@ -6,9 +6,8 @@ class AvatarPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Avatar"),
-          
           actions: <Widget>[
-             CircleAvatar(
+            CircleAvatar(
               child: Text('JY'),
               backgroundColor: Colors.deepOrangeAccent,
             ),
@@ -16,16 +15,18 @@ class AvatarPage extends StatelessWidget {
             CircleAvatar(
               radius: 20,
               backgroundImage: NetworkImage('https://e00-elmundo.uecdn.es/elmundo/imagenes/2007/08/06/1186391983_0.jpg'),
-              ),
+            ),
             SizedBox(width: 10,),
           ],
         ),
         body: Center(
             child: FadeInImage(
-          image: NetworkImage(
+            image: NetworkImage(
               "https://e00-elmundo.uecdn.es/elmundo/imagenes/2007/08/06/1186391983_0.jpg"),
           placeholder: AssetImage('assets/jar-loading.gif'),
           fadeOutDuration: Duration(milliseconds: 300),
-        )));
+          )
+        )
+    );
   }
 }
