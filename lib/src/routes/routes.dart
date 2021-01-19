@@ -5,6 +5,7 @@ import 'package:flutter_first_await/src/screens/avatar_page.dart';
 import 'package:flutter_first_await/src/screens/card_page.dart';
 import 'package:flutter_first_await/src/screens/home_page.dart';
 import 'package:flutter_first_await/src/screens/animated_container_page.dart';
+import 'package:flutter_first_await/src/screens/input_page.dart';
 
 Map<String, WidgetBuilder> getPageRoutes() {
   return <String, WidgetBuilder>{
@@ -13,5 +14,6 @@ Map<String, WidgetBuilder> getPageRoutes() {
     'avatar': (BuildContext context) => AvatarPage(),
     'card': (BuildContext context) => CardPage(),
     "animated_container": (BuildContext context) => AnimatedPage(),
+    'input' : (BuildContext context) => InputPage(),
   };
 }
