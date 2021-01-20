@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_first_await/src/components/CustomDropDown.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -10,6 +11,15 @@ class _InputPageState extends State<InputPage> {
   String _name = "";
   String _email = "";
   String _password = "";
+ 
+  List<String> _listItems = [
+    "Item 1",
+    "Item 2",
+    "Item 3",
+    "Item 4",
+  ];
+
+  final GlobalKey dropdownKey = GlobalKey();
 
   TextEditingController _dateController = new TextEditingController();
 
@@ -28,16 +38,25 @@ class _InputPageState extends State<InputPage> {
             Divider(height: 20),
             _createDate(context),
             Divider(height: 20),
+            _createDropdown(),
+            Divider(height: 20),
             _createInfo(),
           ],
         ));
   }
 
+  Widget _createDropdown() {
+    return CustomDropdownMenu(_listItems, Icons.ac_unit, (){}); 
+  }
+
+  List<DropdownMenuItem<String>> getItems() =>
+      (_listItems.map((opt) => DropdownMenuItem(child: Text(opt), value: opt)))
+          .toList();  
+
   Widget _createDate(BuildContext context) {
     return TextField(
       enableInteractiveSelection: false,
       controller: _dateController,
-      
       decoration: InputDecoration(
         border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
@@ -55,17 +74,17 @@ class _InputPageState extends State<InputPage> {
 
   void _showDateDialog(BuildContext context) async {
     DateTime picked = await showDatePicker(
-        context: context,
-        firstDate: DateTime(2019),
-        initialDate: DateTime.now(),
-        lastDate: DateTime(3000),
-        locale: Locale('es', 'ES'), 
-        );
+      context: context,
+      firstDate: DateTime(2019),
+      initialDate: DateTime.now(),
+      lastDate: DateTime(3000),
+      locale: Locale('es', 'ES'),
+    );
 
     if (picked != null) {
       setState(() {
         _dateController.text = picked.toString();
-       // _dateController.text = _date;
+        // _dateController.text = _date;
       });
     }
   }
