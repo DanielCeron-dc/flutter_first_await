@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_first_await/src/routes/routes.dart';
 import 'package:flutter_first_await/src/screens/alert_page.dart';
@@ -19,6 +20,17 @@ class MyApp extends StatelessWidget {
           builder: (BuildContext context) => AlertPage(),
         );
       },
+      
+      localizationsDelegates: [
+   GlobalMaterialLocalizations.delegate,
+   GlobalWidgetsLocalizations.delegate,
+   GlobalCupertinoLocalizations.delegate,
+ ],
+ supportedLocales: [
+    const Locale('en', 'EN'), 
+    const Locale('es', 'ES'), 
+  ],
+
       );
   }
 }
