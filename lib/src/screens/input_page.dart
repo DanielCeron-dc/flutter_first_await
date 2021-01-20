@@ -11,6 +11,8 @@ class _InputPageState extends State<InputPage> {
   String _email = "";
   String _password = "";
 
+  TextEditingController _dateController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +26,48 @@ class _InputPageState extends State<InputPage> {
             Divider(height: 20),
             _createPassword(),
             Divider(height: 20),
+            _createDate(context),
+            Divider(height: 20),
             _createInfo(),
           ],
         ));
+  }
+
+  Widget _createDate(BuildContext context) {
+    return TextField(
+      enableInteractiveSelection: false,
+      controller: _dateController,
+      
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.0))),
+        hintText: 'Ingrese la fecha',
+        labelText: 'Fecha...',
+        suffixIcon: Icon(Icons.calendar_today),
+        icon: Icon(Icons.calendar_view_day),
+      ),
+      onTap: () {
+        FocusScope.of(context).requestFocus(new FocusNode());
+        _showDateDialog(context);
+      },
+    );
+  }
+
+  void _showDateDialog(BuildContext context) async {
+    DateTime picked = await showDatePicker(
+        context: context,
+        firstDate: DateTime(2019),
+        initialDate: DateTime.now(),
+        lastDate: DateTime(3000),
+        locale: Locale('es', 'ES'), 
+        );
+
+    if (picked != null) {
+      setState(() {
+        _dateController.text = picked.toString();
+       // _dateController.text = _date;
+      });
+    }
   }
 
   Widget _createInput() {
@@ -75,7 +116,7 @@ class _InputPageState extends State<InputPage> {
       decoration: InputDecoration(
         border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
-        labelText:'Password...',
+        labelText: 'Password...',
         hintText: 'Password. No sea estúpido',
         suffixIcon: Icon(Icons.lock_open_rounded),
         icon: Icon(Icons.lock_outlined),
@@ -91,7 +132,14 @@ class _InputPageState extends State<InputPage> {
   Widget _createInfo() {
     return ListTile(
       title: Text('El texto es: '),
-      subtitle: Text("Name = " + _name + " E-mail = " + _email + " Password = " + _password),
+      subtitle: Text("Name = " +
+          _name +
+          " E-mail = " +
+          _email +
+          " Password = " +
+          _password +
+          "Fecha = " +
+          _dateController.text),
     );
   }
 }
