@@ -6,6 +6,8 @@ final Map<String, IconData> _iconMap = {
   "folder_open": Icons.folder_open,
   "attractions" : Icons.attractions,
   "input" : Icons.input,
+  "tune" : Icons.tune, 
+  "list" : Icons.list,
 };
 
 Icon getIcon(String iconName) {

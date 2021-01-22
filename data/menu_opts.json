@@ -25,6 +25,16 @@
             "ruta" : "input",
             "icon" : "input",
             "texto": "Inputs uwu"
+        },
+        {
+            "ruta" : "slider",
+            "icon" : "tune",
+            "texto": "Sliders"
+        },
+        {
+            "ruta" : "list",
+            "icon" : "list",
+            "texto": "infinite List"
         }
     ]
 }
