@@ -59,7 +59,7 @@ class CardPage extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.all(10),
-            child: Text('tu puta madre')
+            child: Text('Hola señora')
           )
         ],
       ),
